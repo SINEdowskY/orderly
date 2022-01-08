@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <div>
+    {% for el in cart %}
+        <div>
+            <h1 class="names">{{ el.name }}</h1>
+            <h2 class="amounts">{{ el.amount }}</h2>
+            <h2 class="costs">{{ el.cost }} zł</h2>
+        </div>
+            <a href="{% url 'delete' el.id %}"><button>Delete</button></a>
+    {% endfor %}
+    </div>
+    <div>
+        <h1>Cena:</h1>
+        <h1 class="cost_sum">0</h1><h1>zł</h1>
+        <a href="{% url 'deleteAll' %}"><button>Delete All</button></a>
+        <form method="post" action="">
+            {% csrf_token %}
+            <input name="names_arr" id="names_arr" type="hidden" value="null">
+            <input name="amounts_arr" id="amounts_arr" type="hidden" value="null">
+            <input name="costs_sum" id="costs_sum" type="hidden" value="null">
+            <input type="submit" value="Order">
+        </form>
+    </div>
+{% endblock %}

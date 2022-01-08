@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    {% for meal in meals %}
+        <a href="{% url 'order' meal.id %}">
+            <div>
+                <h1>{{ meal.name }} | {{ meal.price }} zł</h1>
+                <h2>{{ meal.description }}</h2>
+        </div>
+        </a>
+    {% endfor %}
+{% endblock %}

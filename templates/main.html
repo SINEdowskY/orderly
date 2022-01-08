@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'orderly/style/style.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navbar">
+            {% include 'navbar.html' %}
+        </div>
+        <div class="main">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <script src="{% static 'orderly/script/script.js' %}"></script>
+    <script src="{% static 'orderly/script/script_for_cart.js' %}"></script>
+</body>
+</html>
