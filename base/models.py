@@ -32,6 +32,7 @@ class Order(models.Model):
     meals = models.JSONField(default=dict)
     costs = models.FloatField()
     is_done = models.BooleanField(default=False)
+    is_received = models.BooleanField(default=False)
 
     def __str__(self):
         return "Order #"+str(self.id)

@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+
+{% block content %}
+        {% for id, meal,bools in order %}
+        {% if bools.0 == False or bools.1 == False %}
+            <div>
+                <h1>
+                #{{ id.0 }}
+                </h1>
+                    {% for el in meal %}
+                        <h2>
+                            {{ el }}
+                        </h2>
+                    {% endfor %}
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{ bools.0 }}" name="value">
+                    <input type="hidden" value="done" name="data">
+                    <input type="hidden" value="{{ id.0 }}" name="id">
+                    {% if bools.0 %}
+                        <input disabled type="submit" value="Done">
+                     {% else %}
+                        <input type="submit" value="Done">
+                    {% endif %}
+                </form>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{ bools.1 }}" name="value">
+                    <input type="hidden" value="received" name="data">
+                    <input type="hidden" value="{{ id.0 }}" name="id">
+                    {% if bools.1 == False and bools.0 == False %}
+                        <input disabled type="submit" value="Received">
+                        {% else %}
+                        <input type="submit" value="Received">
+                    {% endif %}
+                </form>
+            </div>
+        {% endif %}
+        {% endfor %}
+{% endblock %}

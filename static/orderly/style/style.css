@@ -59,11 +59,9 @@ div.navbar{
 	width: 100%;
 	height: 10%;
 	background-color: aqua;
-
-	display: flex;
-	justify-content: center;
-	align-content: center;
 }
+
+
 div.navbar > h1 {
 	font-size: 10vw;
 }
@@ -90,10 +88,8 @@ div.main > a:hover{
 	outline: 3px solid aqua;
 }
 div.navbar{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+	display: grid;
+	grid-template-columns: 20% 60% 20%;
 }
 a > div {
 	width: 100%;
@@ -102,7 +98,22 @@ a > div {
 	text-align: center;
 	vertical-align: center;
 }
+a.logo{
+	grid-column: 2/3;
+}
 
 a.cart{
-	justify-self: flex-end;
+	grid-column: 3/4;
+}
+
+div.navbar > a > h1 {
+	width: 100%;
+	height: 100%;
+	font-size: 48px;
+	text-align: center;
+	text-decoration: none;
+}
+
+h1.orderInfo{
+	font-size: 48px;
 }

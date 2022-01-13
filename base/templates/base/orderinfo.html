@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% for el in order %}
-    {% if el.is_done == True %}
-        <h1>#{{ el.id }}</h1>
-    {% endif %}
-{% endfor %}
-</body>
-</html>
+{% extends 'main.html' %}
+
+{% block content %}
+        {% for el in order %}
+            {% if el.is_done == True and el.is_received == False %}
+            <h1 class="orderInfo">#{{ el.id }}</h1>
+            {% endif %}
+        {% endfor %}
+
+
+    <script>
+        setInterval(()=>{
+            window.location.reload();
+        },10000);
+    </script>
+{% endblock %}
+

@@ -1,6 +1,7 @@
 {% extends 'main.html' %}
 
 {% block content %}
+    {% if cart|length > 0 %}
     <div>
     {% for el in cart %}
         <div>
@@ -20,7 +21,14 @@
             <input name="names_arr" id="names_arr" type="hidden" value="null">
             <input name="amounts_arr" id="amounts_arr" type="hidden" value="null">
             <input name="costs_sum" id="costs_sum" type="hidden" value="null">
-            <input type="submit" value="Order">
+            {% if cart|length > 0 %}
+                <input type="submit" value="Order">
+            {% else %}
+                <input disabled type="submit" value="Order">
+            {% endif %}
         </form>
     </div>
+    {% else %}
+        <h1 class="orderInfo">Aktualnie koszyk jest pusty!</h1>
+    {% endif %}
 {% endblock %}
